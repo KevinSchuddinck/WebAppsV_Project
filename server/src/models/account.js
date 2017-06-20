@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongoose from 'mongoose';
 // import Regex from 'regex';
-import config from '../config';
+import config from '../config/index';
 
 const accountSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },

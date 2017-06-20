@@ -1,7 +1,7 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import mongoose from 'mongoose';
-import config from './config/development';
+import config from './config/index';
 import accountRoutes from './routes/account';
 
 const setupDatabase = () => {
