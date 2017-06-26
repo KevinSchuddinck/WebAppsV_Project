@@ -1,10 +1,23 @@
 import express from 'express';
 import Account from '../models/account';
+import { comparePasswords, generateWebToken } from '../utils/index';
 
 const router = express.Router();
 
-router.post('/login', (req, res, next) => {
-  res.json({ message: 'TODO' });
+router.post('/login', async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    const account = await Account.findOne({ email: email });
+    const isValid = await comparePasswords(password, account.password);
+    if(!isValid){
+      return res.status(400).json({ message: 'invalid credentials' });
+    }
+    return res.json({ authToken: generateWebToken(account.email, account.firstName, account.lastName) });
+  } catch (err) {
+    console.warn('ERROR', err);
+    return res.status(400).json({ message: 'Error while fetching account' });
+  }
+
 });
 
 router.post('/register', async (req, res, next) => {
