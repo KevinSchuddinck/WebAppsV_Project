@@ -3,6 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import config from './config/index';
 import accountRoutes from './routes/account';
+import blogPostRoutes from './routes/blogPost';
 
 const setupDatabase = () => {
   mongoose.Promise = global.Promise;
@@ -19,6 +20,7 @@ const setupExpress = () => {
   // Middleware
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use('/api/account', accountRoutes);
+  app.use('/api/blogpost', blogPostRoutes);
 
   app.get('/api', (req, res, next) => {
     res.json({ message: 'Hello World!' });
