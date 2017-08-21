@@ -1080,11 +1080,11 @@ __export(__webpack_require__(80));
  */ /** */
 Object.defineProperty(exports, "__esModule", { value: true });
 var predicates_1 = __webpack_require__(1);
-var rejectFactory_1 = __webpack_require__(11);
+var rejectFactory_1 = __webpack_require__(12);
 var common_1 = __webpack_require__(0);
 var hof_1 = __webpack_require__(2);
 var transition_1 = __webpack_require__(18);
-var resolvable_1 = __webpack_require__(13);
+var resolvable_1 = __webpack_require__(14);
 /**
  * Returns a string shortened to a maximum length
  *
@@ -1825,13 +1825,21 @@ exports.Param = Param;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng_from_import = __webpack_require__(15);
+var ng_from_import = __webpack_require__(11);
 var ng_from_global = angular;
 exports.ng = (ng_from_import && ng_from_import.module) ? ng_from_import : ng_from_global;
 //# sourceMappingURL=angular.js.map
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(60);
+module.exports = angular;
+
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1926,7 +1934,7 @@ exports.Rejection = Rejection;
 //# sourceMappingURL=rejectFactory.js.map
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1944,7 +1952,7 @@ var predicates_1 = __webpack_require__(1);
 var hof_1 = __webpack_require__(2);
 var trace_1 = __webpack_require__(6);
 var coreservices_1 = __webpack_require__(3);
-var rejectFactory_1 = __webpack_require__(11);
+var rejectFactory_1 = __webpack_require__(12);
 var targetState_1 = __webpack_require__(7);
 var defaultOptions = {
     current: common_1.noop,
@@ -2152,7 +2160,7 @@ exports.TransitionHook = TransitionHook;
 //# sourceMappingURL=transitionHook.js.map
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2291,7 +2299,7 @@ exports.Resolvable = Resolvable;
 //# sourceMappingURL=resolvable.js.map
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2363,14 +2371,6 @@ function locationPluginFactory(name, isHtml5, serviceClass, configurationClass) 
 }
 exports.locationPluginFactory = locationPluginFactory;
 //# sourceMappingURL=utils.js.map
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(60);
-module.exports = angular;
-
 
 /***/ }),
 /* 16 */
@@ -2500,13 +2500,13 @@ var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var hof_1 = __webpack_require__(2);
 var interface_1 = __webpack_require__(8); // has or is using
-var transitionHook_1 = __webpack_require__(12);
+var transitionHook_1 = __webpack_require__(13);
 var hookRegistry_1 = __webpack_require__(25);
 var hookBuilder_1 = __webpack_require__(32);
 var pathFactory_1 = __webpack_require__(19);
 var targetState_1 = __webpack_require__(7);
 var param_1 = __webpack_require__(9);
-var resolvable_1 = __webpack_require__(13);
+var resolvable_1 = __webpack_require__(14);
 var resolveContext_1 = __webpack_require__(20);
 /** @hidden */
 var stateSelf = hof_1.prop("self");
@@ -3308,7 +3308,7 @@ var hof_1 = __webpack_require__(2);
 var trace_1 = __webpack_require__(6);
 var coreservices_1 = __webpack_require__(3);
 var interface_1 = __webpack_require__(33);
-var resolvable_1 = __webpack_require__(13);
+var resolvable_1 = __webpack_require__(14);
 var pathFactory_1 = __webpack_require__(19);
 var strings_1 = __webpack_require__(5);
 var when = interface_1.resolvePolicies.when;
@@ -4020,7 +4020,7 @@ exports.UrlMatcher = UrlMatcher;
  * @module vanilla
  */ /** */
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(14);
+var utils_1 = __webpack_require__(15);
 var predicates_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(0);
 /** A base `LocationServices` */
@@ -4649,7 +4649,7 @@ var updateGlobals_1 = __webpack_require__(70);
 var url_1 = __webpack_require__(71);
 var lazyLoad_1 = __webpack_require__(48);
 var transitionEventType_1 = __webpack_require__(49);
-var transitionHook_1 = __webpack_require__(12);
+var transitionHook_1 = __webpack_require__(13);
 var predicates_1 = __webpack_require__(1);
 var common_1 = __webpack_require__(0);
 var hof_1 = __webpack_require__(2);
@@ -5150,7 +5150,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var interface_1 = __webpack_require__(8);
-var transitionHook_1 = __webpack_require__(12);
+var transitionHook_1 = __webpack_require__(13);
 /**
  * This class returns applicable TransitionHooks for a specific Transition instance.
  *
@@ -5506,7 +5506,7 @@ var common_1 = __webpack_require__(0);
 var predicates_1 = __webpack_require__(1);
 var strings_1 = __webpack_require__(5);
 var hof_1 = __webpack_require__(2);
-var resolvable_1 = __webpack_require__(13);
+var resolvable_1 = __webpack_require__(14);
 var coreservices_1 = __webpack_require__(3);
 var parseUrl = function (url) {
     if (!predicates_1.isString(url))
@@ -6123,7 +6123,7 @@ var coreservices_1 = __webpack_require__(3);
 var pathFactory_1 = __webpack_require__(19);
 var pathNode_1 = __webpack_require__(26);
 var transitionService_1 = __webpack_require__(28);
-var rejectFactory_1 = __webpack_require__(11);
+var rejectFactory_1 = __webpack_require__(12);
 var targetState_1 = __webpack_require__(7);
 var param_1 = __webpack_require__(9);
 var glob_1 = __webpack_require__(17);
@@ -8029,7 +8029,7 @@ exports.lazyLoadState = lazyLoadState;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var transitionHook_1 = __webpack_require__(12);
+var transitionHook_1 = __webpack_require__(13);
 /**
  * This class defines a type of hook, such as `onBefore` or `onEnter`.
  * Plugins can define custom hook types, such as sticky states does for `onInactive`.
@@ -8245,7 +8245,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module vanilla
  */
 /** */
-var utils_1 = __webpack_require__(14);
+var utils_1 = __webpack_require__(15);
 var baseLocationService_1 = __webpack_require__(22);
 /** A `LocationServices` that uses the browser hash "#" to get/set the current location */
 var HashLocationService = (function (_super) {
@@ -8327,7 +8327,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var utils_1 = __webpack_require__(14);
+var utils_1 = __webpack_require__(15);
 var baseLocationService_1 = __webpack_require__(22);
 /**
  * A `LocationServices` that gets/sets the current location using the browser's `location` and `history` apis
@@ -8817,7 +8817,7 @@ exports.UrlRouterProvider = UrlRouterProvider;
 "use strict";
 
 
-var _angular = __webpack_require__(15);
+var _angular = __webpack_require__(11);
 
 var _angular2 = _interopRequireDefault(_angular);
 
@@ -8829,14 +8829,24 @@ var _app = __webpack_require__(89);
 
 var _app2 = _interopRequireDefault(_app);
 
-var _login = __webpack_require__(90);
+var _home = __webpack_require__(90);
+
+var _home2 = _interopRequireDefault(_home);
+
+var _login = __webpack_require__(91);
 
 var _login2 = _interopRequireDefault(_login);
+
+var _services = __webpack_require__(95);
+
+var _services2 = _interopRequireDefault(_services);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // http://beta.angular-tips.com/blog/2015/06/using-angular-1-dot-x-with-es6-and-webpack/
-var app = _angular2.default.module('app', [_angularUiRouter2.default, _login2.default]).config(_app2.default);
+var app = _angular2.default.module('app', [_angularUiRouter2.default,
+// home,
+_login2.default, _services2.default]).config(_app2.default);
 
 /***/ }),
 /* 60 */
@@ -42258,7 +42268,7 @@ function __export(m) {
 Object.defineProperty(exports, "__esModule", { value: true });
 /** @module resolve */ /** for typedoc */
 __export(__webpack_require__(33));
-__export(__webpack_require__(13));
+__export(__webpack_require__(14));
 __export(__webpack_require__(20));
 //# sourceMappingURL=index.js.map
 
@@ -42594,7 +42604,7 @@ exports.registerUpdateUrl = function (transitionService) {
 /** @module hooks */ /** */
 Object.defineProperty(exports, "__esModule", { value: true });
 var trace_1 = __webpack_require__(6);
-var rejectFactory_1 = __webpack_require__(11);
+var rejectFactory_1 = __webpack_require__(12);
 /**
  * A [[TransitionHookFn]] that skips a transition if it should be ignored
  *
@@ -42674,9 +42684,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(__webpack_require__(8));
 __export(__webpack_require__(32));
 __export(__webpack_require__(25));
-__export(__webpack_require__(11));
-__export(__webpack_require__(18));
 __export(__webpack_require__(12));
+__export(__webpack_require__(18));
+__export(__webpack_require__(13));
 __export(__webpack_require__(49));
 __export(__webpack_require__(28));
 //# sourceMappingURL=index.js.map
@@ -42747,7 +42757,7 @@ __export(__webpack_require__(53));
 __export(__webpack_require__(54));
 __export(__webpack_require__(55));
 __export(__webpack_require__(56));
-__export(__webpack_require__(14));
+__export(__webpack_require__(15));
 __export(__webpack_require__(79));
 //# sourceMappingURL=index.js.map
 
@@ -42765,7 +42775,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** */
 var browserLocationConfig_1 = __webpack_require__(56);
 var hashLocationService_1 = __webpack_require__(52);
-var utils_1 = __webpack_require__(14);
+var utils_1 = __webpack_require__(15);
 var pushStateLocationService_1 = __webpack_require__(54);
 var memoryLocationService_1 = __webpack_require__(53);
 var memoryLocationConfig_1 = __webpack_require__(55);
@@ -44140,7 +44150,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @module directives
  */ /** for typedoc */
 var angular_1 = __webpack_require__(10);
-var angular_2 = __webpack_require__(15);
+var angular_2 = __webpack_require__(11);
 var core_1 = __webpack_require__(4);
 var views_1 = __webpack_require__(30);
 var services_1 = __webpack_require__(29);
@@ -44481,11 +44491,18 @@ function routing($urlRouterProvider, $locationProvider) {
 "use strict";
 
 
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _angular = __webpack_require__(15);
+var _angular = __webpack_require__(11);
 
 var _angular2 = _interopRequireDefault(_angular);
 
@@ -44493,26 +44510,20 @@ var _angularUiRouter = __webpack_require__(31);
 
 var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-var _login = __webpack_require__(91);
+var _login = __webpack_require__(92);
 
 var _login2 = _interopRequireDefault(_login);
 
-var _login3 = __webpack_require__(92);
+var _login3 = __webpack_require__(93);
 
 var _login4 = _interopRequireDefault(_login3);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//const login = angular.module('login', [uirouter]);
-
-//login.config(routing).controller('LoginController',LoginController).name;
-
-//export default login;
-
 exports.default = _angular2.default.module('login', [_angularUiRouter2.default]).config(_login4.default).controller('LoginController', _login2.default).name;
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44527,16 +44538,32 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var LoginController = function () {
-  function LoginController() {
+  function LoginController(accountService, $location) {
+    'ngInject';
+
     _classCallCheck(this, LoginController);
 
     this.name = 'World';
+    this.errorMessage = '';
+    this.accountService = accountService;
+    this.location = $location;
   }
 
   _createClass(LoginController, [{
-    key: 'click',
-    value: function click() {
-      this.name = 'Test';
+    key: 'onClickRegister',
+    value: function onClickRegister() {
+      this.location.path('/home');
+    }
+  }, {
+    key: 'onSubmit',
+    value: async function onSubmit(login) {
+      try {
+        this.errorMessage = '';
+        await this.accountService.login(login.email, login.password);
+        // location.path('/home');
+      } catch (e) {
+        this.errorMessage = e.data.message;
+      }
     }
   }]);
 
@@ -44546,7 +44573,7 @@ var LoginController = function () {
 exports.default = LoginController;
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44561,17 +44588,128 @@ routes.$inject = ['$stateProvider'];
 function routes($stateProvider) {
   $stateProvider.state('login', {
     url: '/login',
-    template: __webpack_require__(93),
+    template: __webpack_require__(94),
     controller: 'LoginController',
     controllerAs: 'login'
   });
 }
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n  <h1>Hello, {{login.name}}</h1>\r\n  <button ng-click=\"login.click()\">Test</button>\r\n</div>\r\n";
+module.exports = "<div>\r\n  <h1>Hello, {{login.name}}</h1>\r\n\r\n  <form novalidate>\r\n    <input type=\"text\" ng-model=\"login.email\"/>\r\n    <br/>\r\n    <input type=\"password\" ng-model=\"login.password\"/>\r\n    <br/>\r\n    <input type=\"submit\" ng-click=\"login.onSubmit(login)\" value=\"login\"/>\r\n  </form>\r\n  <div ng-show=\"login.errorMessage\">{{login.errorMessage}}</div>\r\n\r\n  <div ng-click=\"login.onClickRegister()\">Not yet an account? Register here!</div>\r\n\r\n</div>\r\n";
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _angular = __webpack_require__(11);
+
+var _angular2 = _interopRequireDefault(_angular);
+
+var _account = __webpack_require__(96);
+
+var _account2 = _interopRequireDefault(_account);
+
+var _blogPost = __webpack_require__(97);
+
+var _blogPost2 = _interopRequireDefault(_blogPost);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = _angular2.default.module('services', []).service('accountService', _account2.default).service('blogPostService', _blogPost2.default).name;
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Account = function () {
+  function Account($http, $window) {
+    'ngInject';
+
+    _classCallCheck(this, Account);
+
+    this.http = $http;
+    this.window = $window;
+  }
+
+  _createClass(Account, [{
+    key: 'login',
+    value: async function login(email, password) {
+      var result = await this.http({
+        url: 'http://127.0.0.1:3000/api/account/login',
+        method: 'POST',
+        data: { email: email, password: password }
+      });
+      this.window.sessionStorage['authToken'] = result.authToken;
+    }
+  }]);
+
+  return Account;
+}();
+
+exports.default = Account;
+;
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BlogPost = function () {
+  function BlogPost($http) {
+    'ngInject';
+
+    _classCallCheck(this, BlogPost);
+
+    this.http = $http;
+  }
+
+  _createClass(BlogPost, [{
+    key: 'fetchAllBlogPosts',
+    value: async function fetchAllBlogPosts() {
+      var result = await this.http({
+        //url: 'http://127.0.0.1:3000/api/account/login',
+        method: 'GET'
+      });
+      return result;
+    }
+  }]);
+
+  return BlogPost;
+}();
+
+exports.default = BlogPost;
+;
 
 /***/ })
 /******/ ]);

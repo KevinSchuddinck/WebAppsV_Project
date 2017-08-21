@@ -6,15 +6,19 @@ const router = express.Router();
 
 router.post('/login', async (req, res, next) => {
   const { email, password } = req.body;
+  var account;
   try {
-    const account = await Account.findOne({ email: email });
+    account = await Account.findOne({ email: email });
     const isValid = await comparePasswords(password, account.password);
-    if(!isValid){
-      return res.status(400).json({ message: 'invalid credentials' });
+    if(!isValid ){
+      return res.status(401).json({ message: 'invalid credentials' });
     }
     return res.json({ authToken: generateWebToken(account.email, account.firstName, account.lastName) });
   } catch (err) {
     console.warn('ERROR', err);
+    if(account === null || account === ''){
+      return res.status(401).json({ message: 'invalid credentials' });
+    }
     return res.status(400).json({ message: 'Error while fetching account' });
   }
 

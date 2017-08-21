@@ -1,24 +1,29 @@
 export default class Account {
 
-  constructor ($http) {
+  constructor ($http, $window) {
     'ngInject';
     this.http = $http;
-    this.authToken = '';
-    this.errors = [];
+    this.window = $window;
   }
 
-  login (email, password) {
-    try {
-      const result = await this.http({
-        url: 'http://127.0.0.1:3000/api/account/login',
-        method: 'POST',
-        data: { email, password }
-      });
-      this.authToken = result.authToken;
-    } catch (e) {
-      console.warn('ERROR', e);
-      errors.push(e);
-    }
+  async login (email, password) {
+    const result = await this.http({
+      url: 'http://127.0.0.1:3000/api/account/login',
+      method: 'POST',
+      data: {
+        email : email,
+        password : password },
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded' },
+      transformRequest: function(obj) {
+        var str = [];
+        for(var p in obj)
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+      }
+    });
+    this.window.sessionStorage['authToken'] = result.data.authToken;
   }
 
 };
