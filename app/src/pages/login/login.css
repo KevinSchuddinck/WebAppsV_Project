@@ -1,0 +1,18 @@
+.logincontainer{
+  margin-bottom: auto;
+  padding-top: 50px;
+
+}
+
+.loginheader{
+  background-color: blue;
+
+}
+
+.loginform{
+  background-color: gray;
+}
+
+.loginactions{
+  background-color: red;
+}

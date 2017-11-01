@@ -1,15 +1,21 @@
-<div>
-  <h1>Hello, {{login.name}}</h1>
+<div class="logincontainer">
 
-  <form novalidate>
+  <div class="loginheader">
+
+  </div>
+
+  <form novalidate class="loginform">
     <input type="text" ng-model="login.email"/>
     <br/>
     <input type="password" ng-model="login.password"/>
     <br/>
     <input type="submit" ng-click="login.onSubmit(login)" value="login"/>
   </form>
-  <div ng-if="login.errorMessage">{{login.errorMessage}}</div>
+  <div ng-show="login.errorMessage">{{login.errorMessage}}</div>
 
   <div ng-click="login.onClickRegister()">Not yet an account? Register here!</div>
 
+  <div class="loginactions">
+
+  </div>
 </div>

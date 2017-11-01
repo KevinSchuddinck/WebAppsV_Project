@@ -8,7 +8,7 @@ import services from './services';
 // http://beta.angular-tips.com/blog/2015/06/using-angular-1-dot-x-with-es6-and-webpack/
 const app = angular.module('app', [
   uirouter,
-  // home,
+  home,
   login,
   services
 ]).config(routing);

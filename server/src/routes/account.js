@@ -4,11 +4,13 @@ import { comparePasswords, generateWebToken } from '../utils/index';
 
 const router = express.Router();
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
+  console.log(req.body)
   var account;
   try {
-    account = await Account.findOne({ email: email });
+    account = await Account.findOne({ email });
+    console.log(account)
     const isValid = await comparePasswords(password, account.password);
     if(!isValid ){
       return res.status(401).json({ message: 'invalid credentials' });

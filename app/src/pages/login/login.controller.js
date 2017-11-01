@@ -1,11 +1,12 @@
 export default class LoginController {
 
-  constructor (accountService, $location) {
+  constructor (accountService, $location, $scope) {
     'ngInject';
     this.name = 'World';
     this.errorMessage = '';
     this.accountService = accountService;
     this.location = $location;
+    this.scope = $scope;
   }
 
   onClickRegister () {
@@ -16,12 +17,12 @@ export default class LoginController {
     try {
       this.errorMessage = '';
       await this.accountService.login(login.email, login.password);
-      // location.path('/home');
     } catch (e) {
-      this.errorMessage = e.data.message;
-      console.warn(this.errorMessage);
+      this.errorMessage = e.message;
+      console.warn('ERROOOOOOOOOOOR: ' +this.errorMessage);
     }
-
+    this.location.path('/home');
+    this.scope.$apply();
   }
 
 }

@@ -1,0 +1,29 @@
+<div class="logincontainer">
+
+<div class="wrapper">
+  <div class="loginheader">
+    {{title}}
+  </div>
+
+  <div class="loginform" [formGroup]="loginForm">
+    <input type="text" formControlName="email"/>
+    <input type="password" formControlName="password"/>
+    <input type="submit"(click)="login()" value="login"/>
+  </div>
+
+
+  <div class="loginform" [formGroup]="registerForm">
+    <input type="text" formControlName="email"/>
+    <input type="password" formControlName="password"/>
+    <input type="submit"(click)="register()" value="register"/>
+  </div>
+  <div ng-show="login.errorMessage">{{login.errorMessage}}</div>
+
+  <div ng-click="login.onClickRegister()">Not yet an account? Register here!</div>
+
+
+  <div class="loginactions">
+
+  </div>
+</div>
+</div>

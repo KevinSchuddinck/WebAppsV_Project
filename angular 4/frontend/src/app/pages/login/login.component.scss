@@ -1,0 +1,32 @@
+.logincontainer{
+  margin-bottom: auto;
+  justify-content: center;
+  padding-top: 50px;
+  display: flex;
+}
+
+.loginheader{
+  background-color: #3A76AC;
+  color: white;
+  text-align: center;
+}
+
+.loginform{
+  background-color: gray;
+  flex-direction: column;
+  justify-content: center;
+  display: flex;
+}
+
+.loginactions{
+  background-color: red;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  padding-top: 5px;
+}
