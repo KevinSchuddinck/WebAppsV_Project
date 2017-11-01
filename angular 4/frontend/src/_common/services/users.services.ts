@@ -20,6 +20,7 @@ export class UserService{
     return this.requestService.postNoHeaders('/account/login', body)
       .subscribe(data => {
         console.log(data);
+        
          return data; }) //subscribe wachten op antwoord
   }
 

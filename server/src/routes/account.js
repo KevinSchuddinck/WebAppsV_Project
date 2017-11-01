@@ -26,7 +26,7 @@ router.post('/login', async function (req, res, next) {
 
 });
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', async function (req, res, next) {
   const { email, firstName, lastName, password } = req.body;
   const validationErrors = {};
   if (!Account.isValidEmail(email)) {
