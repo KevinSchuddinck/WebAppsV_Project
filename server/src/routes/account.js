@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.post('/login', async function (req, res, next) {
   const { email, password } = req.body;
-  console.log(req.body)
   var account;
   try {
     account = await Account.findOne({ email });
@@ -15,7 +14,7 @@ router.post('/login', async function (req, res, next) {
     if(!isValid ){
       return res.status(401).json({ message: 'invalid credentials' });
     }
-    return res.json({ authToken: generateWebToken(account.email, account.firstName, account.lastName) });
+    return res.status(201).json({ authToken: generateWebToken(account.email, account.firstName, account.lastName) , email: account.email });
   } catch (err) {
     console.warn('ERROR', err);
     if(account === null || account === ''){
@@ -52,14 +51,14 @@ router.post('/register', async function (req, res, next) {
   try {
     await account.save();
   } catch (err) {
-    console.warn('ERROR', err);
+    // console.log(err.message);
+    if(err.message.includes('duplicate key')){
+      console.log(err.message)
+      return res.status(400).json({ message: 'Email already exists.' });
+    }
     return res.status(400).json({ message: 'Error while saving account' });
   }
   return res.status(201).json({ email, firstName, lastName });
-});
-
-router.get('/', (req, res, next) => {
-  res.json({ message: 'TODO' });
 });
 
 export default router;

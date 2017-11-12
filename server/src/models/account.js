@@ -8,7 +8,6 @@ const accountSchema = mongoose.Schema({
     firstName: { type: String, required: false },
     lastName: { type: String, required: false },
     password: { type: String, required: true }
-    // TODO BlogPosts
 });
 
 class AccountClass {
@@ -27,7 +26,6 @@ class AccountClass {
     // TODO Further validation
   }
   static isValidEmail (email) {
-
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
     console.log(emailRegex.test(email));
     return emailRegex.test(email);

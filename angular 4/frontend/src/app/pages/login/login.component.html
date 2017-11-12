@@ -5,23 +5,24 @@
     {{title}}
   </div>
 
-  <div class="loginform" [formGroup]="loginForm">
-    <input type="text" formControlName="email"/>
-    <input type="password" formControlName="password"/>
+  <div class="loginform" [formGroup]="loginForm" novalidate>
+    <input type="text" formControlName="email" placeholder="email"/>
+    <input type="password" formControlName="password" placeholder="password"/>
     <input type="submit"(click)="login()" value="login"/>
   </div>
 
+  <div class="loginheader">
+    Register
+  </div>
 
-  <div class="loginform" [formGroup]="registerForm">
-    <input type="text" formControlName="email"/>
-    <input type="password" formControlName="password"/>
+  <div class="loginform" [formGroup]="registerForm" novalidate>
+    <input type="text" formControlName="email" placeholder="email*"/>
+    <input type="text" formControlName="firstName" placeholder="firstname"/>
+    <input type="text" formControlName="lastName" placeholder="lastname"/>
+    <input type="password" formControlName="password" placeholder="password*"/>
+    <input type="password" formControlName="passwordCheck" placeholder="confirm password*"/>
     <input type="submit"(click)="register()" value="register"/>
   </div>
-  <div ng-show="login.errorMessage">{{login.errorMessage}}</div>
-
-  <div ng-click="login.onClickRegister()">Not yet an account? Register here!</div>
-
-
   <div class="loginactions">
 
   </div>

@@ -7,6 +7,7 @@ export const auth = (req, res, next) => {
     const decoded = jwt.verify(authToken, 'banaansecret');
     return next();
   } catch (err) {
-    return res.status(401).json({ message: 'invalid authToken' })
+    console.log(err);
+    return res.status(401).json({ message: 'invalid authToken' });
   }
 };

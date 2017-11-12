@@ -1,5 +1,5 @@
-import {NgModule} from "@angular/core";
-import {LoginModule} from "./login/login.module";
+import {NgModule} from '@angular/core';
+import {LoginModule} from './login/login.module';
 
 @NgModule({
   exports: [
@@ -10,4 +10,4 @@ import {LoginModule} from "./login/login.module";
   ]
 })
 
-export class PagesModule{};
+export class PagesModule {}

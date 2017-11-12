@@ -9,24 +9,30 @@ import { Request } from './api/request.services';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class UserService{
+export class UserService {
   private currentUserSubject = new BehaviorSubject<any>(null);
   public currentUser = this.currentUserSubject.asObservable();
 
-  constructor(private requestService: Request){}
+  constructor(private requestService: Request) {}
 
-  public login(body): Observable<string>{
+  public login(body): Observable<string> {
     console.log(body);
     return this.requestService.postNoHeaders('/account/login', body)
       .subscribe(data => {
-        console.log(data);
-        
-         return data; }) //subscribe wachten op antwoord
+         console.log(data);
+         console.log(data._body);
+         localStorage.setItem('currentUser', data._body);
+        //  const user = JSON.parse(localStorage.getItem('currentUser'));
+        //  console.log(user.email);
+         return data;
+       }) // subscribe wachten op antwoord
   }
 
-  public register(body): Observable<string>{
+  public register(body): Observable<string> {
     console.log(body);
     return this.requestService.postNoHeaders('/account/register', body)
-      .subscribe(data => { return data; })
+      .subscribe(data => {
+        return data;
+      });
   }
 }
