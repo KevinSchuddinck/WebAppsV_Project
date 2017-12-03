@@ -28,17 +28,16 @@
 <!-- form to send a blogpost -->
 <div class="homecontainer">
 <div class="wrapper">
-  <form [formGroup]="blogpostForm" novalidate>
+  <form [formGroup]="blogpostForm" (ngSubmit)="sendBlogPost()" novalidate>
     <div class="control-group">
      <div class="form-group floating-label-form-group controls">
        <label>Message</label>
-       <textarea rows="2" class="form-control" formControlName="text" placeholder=" Message" id="message"></textarea>
-       <p class="help-block text-danger"></p>
+       <textarea rows="2" class="form-control" formControlName="text" placeholder=" Message"></textarea>
      </div>
    </div>
    <br>
    <div class="form-group">
-     <button type="submit" (click)="sendBlogPost()" class="btn btn-primary" id="sendMessageButton">Send</button>
+     <button type="submit" class="btn btn-primary" [disabled]="!blogpostForm.valid">Send</button>
    </div>
     </form>
 </div>

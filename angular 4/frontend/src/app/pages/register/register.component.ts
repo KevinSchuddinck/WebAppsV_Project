@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit, OnDestroy  {
   register(): void {
     console.log('clicked');
     if (this.registerForm.status === 'VALID') {
-        this.userService.register2(this.registerForm.value).subscribe(data => {
+        this.userService.register(this.registerForm.value).subscribe(data => {
           // do nothing
         }, err => {
           console.log(err.message);

@@ -17,21 +17,10 @@ export class UserService {
   constructor(private requestService: Request, private router: Router) {}
 
   public login(body): Observable<string> {
-    return this.requestService.postNoHeaders('/account/login', body)
-      .subscribe(async data => {
-         localStorage.setItem('currentUser', JSON.stringify(data));
-         return data;
-       }, error => console.log(error), () => this.router.navigateByUrl('/home'));
+    return this.requestService.postNoHeaders('/account/login', body);
   }
 
   public register(body): Observable<string> {
-    return this.requestService.postNoHeaders('/account/register', body)
-      .subscribe(data => {
-        return data;
-      });
-  }
-
-  public register2(body): Observable<string> {
     return this.requestService.postNoHeaders('/account/register', body);
   }
 
