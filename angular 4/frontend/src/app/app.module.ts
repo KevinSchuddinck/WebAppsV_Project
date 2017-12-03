@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -25,8 +26,10 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     PagesModule,
     rootRouting,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [Request, UserService],

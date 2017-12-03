@@ -1,0 +1,108 @@
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('https://kevinweb.nyc3.digitaloceanspaces.com/background.jpg')">
+     <div class="overlay"></div>
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 col-md-10 mx-auto">
+           <div class="page-heading">
+             <h1>Registreer</h1>
+             <!-- <span class="subheading">something something</span> -->
+           </div>
+         </div>
+       </div>
+     </div>
+</header>
+
+<div class="registercontainer">
+
+<div class="wrapper">
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()" novalidate>
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label for="email">Email</label>
+                 <input type="email" class="form-control" id="email" formControlName="email"  placeholder="Email" required>
+                 <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="alert alert-danger">
+                   <div *ngIf="emailCtrl.errors.required">Email is required.</div>
+                   <div *ngIf="emailCtrl.errors.pattern">Incorrect email.</div>
+                 </div>
+               </div>
+             </div>
+
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label>Firstname</label>
+                 <input type="text" formControlName="firstName" class="form-control" placeholder="Firstname" id="firstName">
+               </div>
+             </div>
+
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label>Lastname</label>
+                 <input type="text" formControlName="lastName" class="form-control" placeholder="Lastname" id="lastName">
+               </div>
+             </div>
+
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label for="password">Password</label>
+                 <input type="password" class="form-control" id="password" formControlName="password"  placeholder="password" required>
+                 <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="alert alert-danger">
+                   <div *ngIf="passwordCtrl.errors.required">Password is required.</div>
+                   <div *ngIf="passwordCtrl.errors.minlength">Password must at least be 4 characters long.</div>
+                 </div>
+               </div>
+             </div>
+
+             <!-- <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label for="password">Password</label>
+                 <input type="password" class="form-control" id="password" formControlName="password" placeholder="Password" required>
+                 <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="alert alert-danger">
+
+                   <div *ngIf="passwordCtrl.errors.required">Password is required.</div>
+                   <div *ngIf="passwordCtrl.errors.minLength">Password must at least be 4 characters long.</div>
+
+                 </div>
+               </div>
+             </div> -->
+
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label for="passwordCheck">Password</label>
+                 <input type="password" class="form-control" id="passwordCheck" formControlName="passwordCheck"  placeholder="re-enter password" required>
+                 <div *ngIf="passwordCheckCtrl.invalid && (passwordCheckCtrl.dirty || passwordCheckCtrl.touched)" class="alert alert-danger">
+                   <div *ngIf="passwordCheckCtrl.errors.required">Password is required.</div>
+                   <div *ngIf="passwordCheckCtrl.errors.matchOther">Passwords do not match.</div>
+                 </div>
+               </div>
+             </div>
+
+             <!-- <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label for="passwordCheck">PasswordCheck</label>
+                 <input type="password" class="form-control" id="passwordCheck" formControlName="passwordCheck" placeholder="re-enter password" required>
+                 <div *ngIf="passwordCheckCtrl.invalid && (passwordCheckCtrl.dirty || passwordCheckCtrl.touched)" class="alert alert-danger">
+
+                   <div *ngIf="passwordCheckCtrl.errors.required">Password is required.</div>
+                   <div *ngIf="passwordCheckCtrl.errors.matchValidator">Passwords do not match.</div>
+
+                 </div>
+              </div>
+             </div> -->
+
+             <br>
+
+             <div name="success" class="{{ success }}" *ngIf="successStatus">{{ textSuccess }}</div>
+
+             <div class="form-group">
+               <!-- <button type="submit" class="btn btn-primary" (click)="register()" id="sendMessageButton">Register</button> -->
+               <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid" >Register</button>
+             </div>
+
+    </form>
+
+    <p>Want to log in? <a href="{{loginlink}}">Click here</a></p>
+
+</div>
+</div>

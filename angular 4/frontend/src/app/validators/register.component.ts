@@ -1,10 +1,12 @@
-import {FormGroup, Validators, FormControl} from '@angular/forms';
+import { Directive, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AbstractControl, NG_VALIDATORS, Validator, ValidatorFn, Validators, FormGroup, FormControl } from '@angular/forms';
+
 
 export function matchValidator(fieldName: string) {
     let fcfirst: FormControl;
     let fcSecond: FormControl;
 
-    return function matchValidator(control: FormControl) {
+    return function matchValidatorz(control: FormControl) {
 
         if (!control.parent) {
             return null;

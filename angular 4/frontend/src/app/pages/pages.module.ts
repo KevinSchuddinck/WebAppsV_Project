@@ -1,12 +1,18 @@
 import {NgModule} from '@angular/core';
 import {LoginModule} from './login/login.module';
+import {HomeModule} from './home/home.module';
+import {RegisterModule} from './register/register.module';
 
 @NgModule({
   exports: [
-    LoginModule
+    LoginModule,
+    HomeModule,
+    RegisterModule
   ],
   imports: [
-    LoginModule
+    LoginModule,
+    HomeModule,
+    RegisterModule
   ]
 })
 

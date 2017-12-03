@@ -7,32 +7,47 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Request } from './api/request.services';
 import { environment } from '../../environments/environment';
+import { BlogPostResponseInterface } from './blog-post-response.interface';
 
 @Injectable()
 export class UserService {
   private currentUserSubject = new BehaviorSubject<any>(null);
   public currentUser = this.currentUserSubject.asObservable();
 
-  constructor(private requestService: Request) {}
+  constructor(private requestService: Request, private router: Router) {}
 
   public login(body): Observable<string> {
-    console.log(body);
     return this.requestService.postNoHeaders('/account/login', body)
-      .subscribe(data => {
-         console.log(data);
-         console.log(data._body);
-         localStorage.setItem('currentUser', data._body);
-        //  const user = JSON.parse(localStorage.getItem('currentUser'));
-        //  console.log(user.email);
+      .subscribe(async data => {
+         localStorage.setItem('currentUser', JSON.stringify(data));
          return data;
-       }) // subscribe wachten op antwoord
+       }, error => console.log(error), () => this.router.navigateByUrl('/home'));
   }
 
   public register(body): Observable<string> {
-    console.log(body);
     return this.requestService.postNoHeaders('/account/register', body)
       .subscribe(data => {
         return data;
       });
+  }
+
+  public register2(body): Observable<string> {
+    return this.requestService.postNoHeaders('/account/register', body);
+  }
+
+  public getBlogposts(): Observable<BlogPostResponseInterface> {
+    try {
+      const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.requestService.setAuth(currentUser);
+    } catch (err) {
+      console.log(err);
+    }
+    return this.requestService.get<BlogPostResponseInterface>('/blogpost/get');
+  }
+
+  public sendBlogpost(body): Observable<string> {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.requestService.setAuth(currentUser);
+    return this.requestService.post<string>('/blogpost/send', body);
   }
 }

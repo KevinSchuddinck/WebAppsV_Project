@@ -15,7 +15,7 @@ router.get('/get', auth, async function (req, res, next) {
   return res.status(201).json({blogposts});
 });
 
-router.post('/send', auth, async function(req,res,next){
+router.post('/send', auth, async function(req, res, next) {
   try{
     const {email, text} = req.body;
     const blogpost = new Blogpost();
@@ -23,9 +23,11 @@ router.post('/send', auth, async function(req,res,next){
     blogpost.date = new Date();
     blogpost.text = text;
 
+    console.log(req.body);
+
     await blogpost.save();
   }catch(err){
-    console.log(err);
+    //console.log(err);
     return res.status(400).json({ message: 'Error while saving blogpost' });
   }
   return res.status(201).json({ message : 'blogpost sent'});

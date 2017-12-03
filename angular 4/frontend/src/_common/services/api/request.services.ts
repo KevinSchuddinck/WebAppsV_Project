@@ -1,38 +1,54 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { Headers, Http, RequestOptionsArgs } from '@angular/http';
-import { HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+
+import { Blogpost } from '../../../app/pages/home/blogpost';
+
+interface PossibleResponseInterface {
+  results: Blogpost[];
+}
 
 @Injectable()
 export class Request {
-  private headers: Headers = new Headers();
+  private headers: HttpHeaders;
   private token = '';
-  private baseUrl= environment.baseUrl;
+  private apiUrl = environment.apiUrl;
   private setHeaders(): void {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
     if (this.token !== '') {
-      this.headers.set('Authorization', `Bearer ${this.token}`);
+      this.headers = this.headers.append('Authorization', `Bearer ${this.token}`);
     }
-    this.headers.set('Content-Type', 'application/x-www-form-urlencoded');
   }
 
-  constructor(private http: Http) {
-
+  constructor(private http: HttpClient) {
   }
 
   public postNoHeaders(uri, data: Object): any {
-    this.setHeaders();
-    return this.http.post(`${this.baseUrl}${uri}`, data, this.headers);
+    return this.http.post(`${this.apiUrl}${uri}`, data);
   }
 
-  public post(uri, data: Object): any {
-    this.setHeaders();
-    return this.http.post(`${this.baseUrl}${uri}`, data, this.headers);
+  public post<T>(uri, data: Object): Observable<T> {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    if (this.token !== '') {
+      this.headers = this.headers.append('Authorization', `Bearer ${this.token}`);
+    }
+    console.log(data);
+    // hier gaat het mis
+    return this.http.post<T>(`${this.apiUrl}${uri}`, data, {
+      headers: this.headers,
+    });
   }
 
-  public get(uri): any {
+  public get<T>(uri): Observable<T> {
     this.setHeaders();
-    return this.http.get(`${this.baseUrl}${uri}`, this.headers);
+    return this.http.get<T>(`${this.apiUrl}${uri}`, {
+      headers: this.headers,
+    });
   }
 
   public setAuth(data: any): void {

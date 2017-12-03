@@ -1,30 +1,44 @@
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('https://kevinweb.nyc3.digitaloceanspaces.com/background.jpg')">
+     <div class="overlay"></div>
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 col-md-10 mx-auto">
+           <div class="page-heading">
+             <h1>Login</h1>
+             <!-- <span class="subheading">something something</span> -->
+           </div>
+         </div>
+       </div>
+     </div>
+</header>
+
+
 <div class="logincontainer">
 
 <div class="wrapper">
-  <div class="loginheader">
-    {{title}}
-  </div>
 
-  <div class="loginform" [formGroup]="loginForm" novalidate>
-    <input type="text" formControlName="email" placeholder="email"/>
-    <input type="password" formControlName="password" placeholder="password"/>
-    <input type="submit"(click)="login()" value="login"/>
-  </div>
+  <form [formGroup]="loginForm" novalidate>
+             <div class="control-group">
+               <div class="form-group floating-label-form-group controls">
+                 <label>Emailaddress</label>
+                 <input type="email" formControlName="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Please enter your emailaddress.">
+                 <p class="help-block text-danger"></p>
+               </div>
+             </div>
+             <div class="control-group">
+               <div class="form-group col-xs-12 floating-label-form-group controls">
+                 <label>Password</label>
+                 <input type="password" formControlName="password" class="form-control" placeholder="Password" id="phone" required data-validation-required-message="Please enter your password.">
+                 <p class="help-block text-danger"></p>
+               </div>
+             </div>
+             <br>
+             <div class="form-group">
+               <button type="submit" class="btn btn-primary" (click)="login()" id="sendMessageButton">Login</button>
+             </div>
+    </form>
 
-  <div class="loginheader">
-    Register
-  </div>
-
-  <div class="loginform" [formGroup]="registerForm" novalidate>
-    <input type="text" formControlName="email" placeholder="email*"/>
-    <input type="text" formControlName="firstName" placeholder="firstname"/>
-    <input type="text" formControlName="lastName" placeholder="lastname"/>
-    <input type="password" formControlName="password" placeholder="password*"/>
-    <input type="password" formControlName="passwordCheck" placeholder="confirm password*"/>
-    <input type="submit"(click)="register()" value="register"/>
-  </div>
-  <div class="loginactions">
-
-  </div>
+    <p>Don't have an account yet? <a href="{{registerlink}}">Click here</a></p>
 </div>
 </div>

@@ -1,0 +1,36 @@
+ul {
+  list-style-type: none;
+}
+
+.homecontainer{
+  margin-bottom: auto;
+  justify-content: center;
+  padding-top: 50px;
+  display: flex;
+}
+
+.ng-invalid{
+  border-color: red;
+}
+
+.loginactions{
+  background-color: red;
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.post-subtitle {
+  max-width: 700px !important;
+  white-space: normal !important;
+  word-wrap: break-word;
+}
+
+textarea {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0069d9;
+  border-radius: 0.25rem;
+}

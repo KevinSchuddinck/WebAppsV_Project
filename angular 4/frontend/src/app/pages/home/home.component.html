@@ -1,0 +1,64 @@
+<!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('https://kevinweb.nyc3.digitaloceanspaces.com/background.jpg')">
+     <div class="overlay"></div>
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-8 col-md-10 mx-auto">
+           <div class="page-heading">
+             <h1>{{ title }}</h1>
+             <span class="subheading">Lees maar alles wat mensen te zeggen hebben.</span>
+           </div>
+         </div>
+       </div>
+     </div>
+</header>
+<!-- form to send a blogpost -->
+<div class="homecontainer">
+<div class="wrapper">
+  <form [formGroup]="blogpostForm" novalidate>
+    <div class="control-group">
+     <div class="form-group floating-label-form-group controls">
+       <label>Message</label>
+       <textarea rows="2" class="form-control" formControlName="text" placeholder=" Message" id="message"></textarea>
+       <p class="help-block text-danger"></p>
+     </div>
+   </div>
+   <br>
+   <div class="form-group">
+     <button type="submit" (click)="sendBlogPost()" class="btn btn-primary" id="sendMessageButton">Send</button>
+   </div>
+    </form>
+</div>
+</div>
+<hr>
+
+<!-- show the blogposts -->
+<ul *ngIf="loaded">
+    <li *ngFor="let blogpost of blogposts">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+            <a>
+              <h3 class="post-subtitle">
+                {{ blogpost.text }}
+              </h3>
+            </a>
+            <p class="post-meta">Posted by
+              {{ blogpost.email }}
+              on {{ blogpost.date |  date:'dd/MM/yyyy hh:mm' }}</p>
+      </div>
+    </div>
+    </li>
+</ul>
