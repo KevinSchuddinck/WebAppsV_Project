@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit, OnDestroy  {
 
   ngOnInit() {
     this.emailCtrl = this.formBuilder.control('', [ Validators.required,
-      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$')]);
+      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-z]{2,3}$')]);
     this.firstnameCtrl = this.formBuilder.control(null);
     this.lastnameCtrl = this.formBuilder.control(null);
     this.passwordCtrl = this.formBuilder.control('', [Validators.required,
